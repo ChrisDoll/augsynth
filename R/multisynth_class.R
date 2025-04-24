@@ -393,7 +393,9 @@ multisynth_formatted <- function(wide, relative=T, n_leads, n_lags,
     msynth$long_df <- long_df
 
     msynth$how_match <- how_match
-    msynth$donors <- donors
+    if (scm){
+      msynth$donors <- donors
+    }
     ##format output
     class(msynth) <- "multisynth"
     return(msynth)
