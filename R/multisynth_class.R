@@ -358,7 +358,11 @@ multisynth_formatted <- function(wide, relative=T, n_leads, n_lags,
                        global_l2=NA,
                        ind_l2=NA)
     }
+    if (!scm) {
+      donors <- NULL
+    }
 
+                              
     ## put in data and hyperparams
     msynth$data <- wide
     msynth$relative <- relative
@@ -393,9 +397,8 @@ multisynth_formatted <- function(wide, relative=T, n_leads, n_lags,
     msynth$long_df <- long_df
 
     msynth$how_match <- how_match
-    if (scm){
-      msynth$donors <- donors
-    }
+    msynth$donors <- donors
+    
     ##format output
     class(msynth) <- "multisynth"
     return(msynth)
